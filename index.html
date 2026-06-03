@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about cybersecurity threats like malware, phishing, and ransomware. Take our interactive quiz and earn your cybersecurity awareness certificate.">
+    <meta name="keywords" content="cybersecurity, awareness, malware, phishing, ransomware, online safety, security tips">
+    <title>CyberShield — Cybersecurity Awareness Hub</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>CyberShield</span>
+            </a>
+            <div class="nav-links">
+                <a href="#threats" class="nav-link">Threats</a>
+                <a href="#safety-tips" class="nav-link">Safety Tips</a>
+                <a href="#examples" class="nav-link">Examples</a>
+                <a href="#quiz" class="nav-link">Quiz</a>
+            </div>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#threats" class="mobile-link">Threats</a>
+            <a href="#safety-tips" class="mobile-link">Safety Tips</a>
+            <a href="#examples" class="mobile-link">Examples</a>
+            <a href="#quiz" class="mobile-link">Quiz</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Cyber Threats Are Evolving — Stay Ahead
+            </div>
+            <h1 class="hero-title">
+                Defend Your
+                <span class="gradient-text">Digital World</span>
+            </h1>
+            <p class="hero-subtitle">
+                Learn to identify and protect yourself against modern cyber threats. 
+                From phishing scams to ransomware attacks — empower yourself with knowledge.
+            </p>
+            <div class="hero-actions">
+                <a href="#threats" class="btn btn-primary" id="hero-learn-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    Start Learning
+                </a>
+                <a href="#quiz" class="btn btn-secondary" id="hero-quiz-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    Take the Quiz
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2200">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Cyber Attacks Daily</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="43">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Target Small Business</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="95">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Caused by Human Error</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="shield-container">
+                <div class="shield-glow"></div>
+                <svg class="shield-icon" viewBox="0 0 120 140" fill="none">
+                    <defs>
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00f5d4;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#7b61ff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M60 10 L110 30 L110 70 C110 100 60 130 60 130 C60 130 10 100 10 70 L10 30 Z" 
+                          stroke="url(#shieldGrad)" stroke-width="3" fill="none" class="shield-path"/>
+                    <path d="M45 70 L55 80 L78 55" stroke="url(#shieldGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="check-path"/>
+                </svg>
+                <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+                <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+                <div class="orbit orbit-3"><div class="orbit-dot"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cyber Threats Section -->
+    <section id="threats" class="section threats-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Know Your Enemy</span>
+                <h2 class="section-title">Common Cyber <span class="gradient-text">Threats</span></h2>
+                <p class="section-desc">Understanding threats is the first step to defending against them. Here are the most prevalent cyber dangers you should know about.</p>
+            </div>
+            <div class="threats-grid">
+                <!-- Malware -->
+                <div class="threat-card" id="threat-malware">
+                    <div class="threat-icon-wrap malware-color">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1.27c.34-.6.99-1 1.73-1a2 2 0 1 1 0 4c-.74 0-1.39-.4-1.73-1H21a7 7 0 0 1-7 7v1.27c.6.34 1 .99 1 1.73a2 2 0 1 1-4 0c0-.74.4-1.39 1-1.73V17a7 7 0 0 1-7-7H3.73c-.34.6-.99 1-1.73 1a2 2 0 1 1 0-4c.74 0 1.39.4 1.73 1H5a7 7 0 0 1 7-7V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="threat-title">Malware</h3>
+                    <p class="threat-desc">Malicious software designed to damage, disrupt, or gain unauthorized access to computer systems. Includes spyware, adware, trojans, and worms.</p>
+                    <div class="threat-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">⚠️</span>
+                            <span>Can steal personal data & credentials</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔍</span>
+                            <span>Often disguised as legitimate software</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <span>Prevention: Use antivirus & avoid unknown downloads</span>
+                        </div>
+                    </div>
+                    <div class="threat-severity">
+                        <span class="severity-label">Severity</span>
+                        <div class="severity-bar"><div class="severity-fill" data-width="85%" style="width:85%"></div></div>
+                        <span class="severity-value">High</span>
+                    </div>
+                </div>
+
+                <!-- Viruses -->
+                <div class="threat-card" id="threat-viruses">
+                    <div class="threat-icon-wrap virus-color">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4m10-10h-4M6 12H2m17.07-7.07-2.83 2.83M7.76 16.24l-2.83 2.83m14.14 0-2.83-2.83M7.76 7.76 4.93 4.93"/>
+                        </svg>
+                    </div>
+                    <h3 class="threat-title">Viruses</h3>
+                    <p class="threat-desc">Self-replicating programs that attach themselves to legitimate files and spread from device to device, corrupting data and degrading performance.</p>
+                    <div class="threat-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">⚠️</span>
+                            <span>Spreads through email attachments & USB drives</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔍</span>
+                            <span>Can corrupt or delete important files</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <span>Prevention: Keep software updated & scan files</span>
+                        </div>
+                    </div>
+                    <div class="threat-severity">
+                        <span class="severity-label">Severity</span>
+                        <div class="severity-bar"><div class="severity-fill" data-width="75%" style="width:75%"></div></div>
+                        <span class="severity-value">High</span>
+                    </div>
+                </div>
+
+                <!-- Phishing -->
+                <div class="threat-card" id="threat-phishing">
+                    <div class="threat-icon-wrap phishing-color">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="threat-title">Phishing</h3>
+                    <p class="threat-desc">Fraudulent attempts to obtain sensitive information by disguising as trustworthy entities via emails, websites, or messages. The #1 attack vector today.</p>
+                    <div class="threat-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">⚠️</span>
+                            <span>Creates urgency to trick quick action</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔍</span>
+                            <span>Uses fake domains that look legitimate</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <span>Prevention: Verify sender & never click suspicious links</span>
+                        </div>
+                    </div>
+                    <div class="threat-severity">
+                        <span class="severity-label">Severity</span>
+                        <div class="severity-bar"><div class="severity-fill" data-width="95%" style="width:95%"></div></div>
+                        <span class="severity-value">Critical</span>
+                    </div>
+                </div>
+
+                <!-- Ransomware -->
+                <div class="threat-card" id="threat-ransomware">
+                    <div class="threat-icon-wrap ransomware-color">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="threat-title">Ransomware</h3>
+                    <p class="threat-desc">Encrypts your files and demands payment (ransom) for the decryption key. Can paralyze entire organizations and cause millions in damages.</p>
+                    <div class="threat-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">⚠️</span>
+                            <span>Average ransom: $200,000+ per incident</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔍</span>
+                            <span>Often delivered through phishing emails</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <span>Prevention: Regular backups & network segmentation</span>
+                        </div>
+                    </div>
+                    <div class="threat-severity">
+                        <span class="severity-label">Severity</span>
+                        <div class="severity-bar"><div class="severity-fill" data-width="100%" style="width:100%"></div></div>
+                        <span class="severity-value">Critical</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Tips Section -->
+    <section id="safety-tips" class="section tips-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Stay Protected</span>
+                <h2 class="section-title">Essential Safety <span class="gradient-text">Tips</span></h2>
+                <p class="section-desc">Follow these best practices to protect yourself and your data from cyber threats.</p>
+            </div>
+            <div class="tips-tabs">
+                <button class="tab-btn active" data-tab="passwords" id="tab-passwords">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Passwords
+                </button>
+                <button class="tab-btn" data-tab="browsing" id="tab-browsing">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Browsing
+                </button>
+                <button class="tab-btn" data-tab="email" id="tab-email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+                    Email
+                </button>
+                <button class="tab-btn" data-tab="social" id="tab-social">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Social Media
+                </button>
+            </div>
+            <div class="tips-content">
+                <!-- Passwords Tab -->
+                <div class="tab-panel active" id="panel-passwords">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-number">01</div>
+                            <h4>Use Strong, Unique Passwords</h4>
+                            <p>Create passwords with at least 12 characters mixing uppercase, lowercase, numbers, and symbols. Never reuse passwords across accounts.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Bad:</span> <code>password123</code>
+                                <span class="example-label">Good:</span> <code>K9#mP$vL2@xQ</code>
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">02</div>
+                            <h4>Enable Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security by requiring a second verification method like SMS codes, authenticator apps, or hardware keys.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Best:</span> Hardware key &gt; Authenticator app &gt; SMS
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">03</div>
+                            <h4>Use a Password Manager</h4>
+                            <p>Let a trusted password manager generate and store complex passwords. You only need to remember one master password.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Popular:</span> Bitwarden, 1Password, KeePass
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">04</div>
+                            <h4>Change Compromised Passwords</h4>
+                            <p>Regularly check if your passwords have been leaked on sites like haveibeenpwned.com and change them immediately.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Tip:</span> Set quarterly password review reminders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Browsing Tab -->
+                <div class="tab-panel" id="panel-browsing">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-number">01</div>
+                            <h4>Check for HTTPS</h4>
+                            <p>Always verify a website uses HTTPS (padlock icon) before entering any personal information. HTTP sites are not encrypted.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Safe:</span> <code>https://bank.com</code>
+                                <span class="example-label">Unsafe:</span> <code>http://bank.com</code>
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">02</div>
+                            <h4>Avoid Public Wi-Fi for Sensitive Tasks</h4>
+                            <p>Public Wi-Fi networks can be monitored. Use a VPN or mobile data for banking, shopping, and accessing sensitive accounts.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Rule:</span> No banking on café Wi-Fi!
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">03</div>
+                            <h4>Keep Browser Updated</h4>
+                            <p>Browser updates patch security vulnerabilities. Enable automatic updates and keep extensions to a minimum.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Tip:</span> Review extensions monthly
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">04</div>
+                            <h4>Use Ad Blockers & Script Blockers</h4>
+                            <p>Malicious ads (malvertising) can infect your device without clicking. Use uBlock Origin and be cautious with pop-ups.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Recommended:</span> uBlock Origin, Privacy Badger
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Tab -->
+                <div class="tab-panel" id="panel-email">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-number">01</div>
+                            <h4>Verify Sender Identity</h4>
+                            <p>Always check the full email address, not just the display name. Attackers often use addresses that look similar to legitimate ones.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Fake:</span> <code>support@amaz0n-security.com</code>
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">02</div>
+                            <h4>Don't Click Unknown Links</h4>
+                            <p>Hover over links to see the actual URL before clicking. If an email creates urgency, it's likely a scam. Go directly to the website instead.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Rule:</span> When in doubt, don't click — type the URL manually
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">03</div>
+                            <h4>Beware of Attachments</h4>
+                            <p>Never open unexpected attachments, especially .exe, .zip, or .docm files. Even PDFs can contain malicious code.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Dangerous:</span> .exe, .scr, .zip, .docm, .js
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">04</div>
+                            <h4>Report Suspicious Emails</h4>
+                            <p>Most email providers have a "Report Phishing" button. Use it to help protect others and improve spam filters.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Tip:</span> Forward phishing to reportphishing@apwg.org
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Tab -->
+                <div class="tab-panel" id="panel-social">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-number">01</div>
+                            <h4>Limit Personal Information</h4>
+                            <p>Don't share your birthday, address, phone number, or workplace publicly. Attackers use this for social engineering and identity theft.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Risk:</span> "Just moved to 123 Oak St!" ❌
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">02</div>
+                            <h4>Review Privacy Settings</h4>
+                            <p>Regularly audit who can see your posts, photos, and personal details. Set profiles to "Friends Only" when possible.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Check:</span> Facebook, Instagram, LinkedIn privacy settings
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">03</div>
+                            <h4>Be Wary of Friend Requests</h4>
+                            <p>Don't accept requests from strangers. Fake profiles are used to gather information or spread malware through messages.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Red flag:</span> New profile, few friends, no mutual connections
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-number">04</div>
+                            <h4>Think Before You Post</h4>
+                            <p>Photos can reveal location data (EXIF). Vacation posts signal an empty home. Information shared online lives forever.</p>
+                            <div class="tip-example">
+                                <span class="example-label">Rule:</span> Would you say this to a stranger? If not, don't post it.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-Life Examples Section -->
+    <section id="examples" class="section examples-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Learn from Reality</span>
+                <h2 class="section-title">Real-Life <span class="gradient-text">Examples</span></h2>
+                <p class="section-desc">Study these real-world scam examples. Spot the red flags before they catch you off guard.</p>
+            </div>
+            <div class="examples-grid">
+                <!-- Phishing Email Example -->
+                <div class="example-card" id="example-phishing-email">
+                    <div class="example-label-tag">Phishing Email</div>
+                    <p class="example-try-prompt">👇 Hover over <span class="red-flag-inline">🚩 red flags</span> to learn why they're suspicious. Try clicking the link!</p>
+                    <div class="email-mockup">
+                        <div class="email-header">
+                            <div class="email-from">
+                                <strong>From:</strong> security-alert@amaz0n-support.com
+                                <span class="red-flag" data-tooltip="Fake domain! Notice the '0' instead of 'o' in amazon">🚩 Suspicious domain</span>
+                            </div>
+                            <div class="email-to"><strong>To:</strong> you@email.com</div>
+                            <div class="email-subject"><strong>Subject:</strong> ⚠️ URGENT: Your account has been compromised!</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Dear Valued Customer,</p>
+                            <p>We have detected <strong>unauthorized access</strong> to your account. Your account will be <span class="highlight-danger">suspended within 24 hours</span> unless you verify your identity immediately.
+                                <span class="red-flag" data-tooltip="Creates false urgency to make you act without thinking">🚩 False urgency</span>
+                            </p>
+                            <p>Click the link below to secure your account:</p>
+                            <a href="#" class="fake-link-clickable" id="phishing-link" onclick="handlePhishingLinkClick(event)">
+                                https://amaz0n-verify-account.suspicious-site.com/login
+                                <span class="red-flag" data-tooltip="URL doesn't match amazon.com — this is a fake site!">🚩 Fake URL</span>
+                            </a>
+                            <p>If you do not verify within 24 hours, your account and all associated data will be permanently deleted.
+                                <span class="red-flag" data-tooltip="Threatening consequences to scare you into clicking">🚩 Scare tactic</span>
+                            </p>
+                            <p>Sincerely,<br>Amazon Security Team
+                                <span class="red-flag" data-tooltip="Amazon would never send emails like this">🚩 Impersonation</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="example-analysis">
+                        <h4>🔍 Red Flags Spotted:</h4>
+                        <ul>
+                            <li><strong>Fake domain</strong> — "amaz0n" with a zero instead of "o"</li>
+                            <li><strong>Urgency &amp; threats</strong> — "24 hours or account deleted"</li>
+                            <li><strong>Suspicious link</strong> — URL doesn't point to amazon.com</li>
+                            <li><strong>Generic greeting</strong> — "Dear Valued Customer" instead of your name</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SMS Scam Example -->
+                <div class="example-card" id="example-sms-scam">
+                    <div class="example-label-tag">SMS Scam</div>
+                    <p class="example-try-prompt">👇 Hover over <span class="red-flag-inline">🚩 red flags</span> to learn why they're suspicious. Try clicking the link!</p>
+                    <div class="sms-mockup">
+                        <div class="sms-header">
+                            <div class="sms-contact">+1 (555) 012-3456</div>
+                            <span class="red-flag" data-tooltip="Unknown number, not from a verified sender">🚩 Unknown sender</span>
+                        </div>
+                        <div class="sms-bubble">
+                            <p>ALERT: Your bank account has been locked due to suspicious activity. Verify your identity NOW to avoid permanent closure: <a href="#" class="fake-sms-link-clickable" id="sms-scam-link" onclick="handleSmsLinkClick(event)">bit.ly/bnk-verify-2024</a>
+                                <span class="red-flag" data-tooltip="Shortened URL hides the real destination">🚩 Shortened URL</span>
+                            </p>
+                            <span class="sms-time">2:34 AM <span class="red-flag" data-tooltip="Sent at unusual hours to catch you off guard">🚩 Odd timing</span></span>
+                        </div>
+                    </div>
+                    <div class="example-analysis">
+                        <h4>🔍 Red Flags Spotted:</h4>
+                        <ul>
+                            <li><strong>Unknown number</strong> — Banks use official short codes, not random numbers</li>
+                            <li><strong>Shortened URL</strong> — Hides the actual malicious destination</li>
+                            <li><strong>Urgency</strong> — "NOW" and "permanent closure" create panic</li>
+                            <li><strong>Odd timing</strong> — Sent at 2:34 AM when you're less alert</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fake Website Example (Interactive Demo) -->
+                <div class="example-card" id="example-fake-website">
+                    <div class="example-label-tag">Fake Login Page — Try It!</div>
+                    <p class="example-try-prompt">👇 This is a safe demo. Try typing and clicking "Log In" to see what happens.</p>
+                    <div class="fake-site-mockup">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="browser-url">
+                                <span class="lock-icon broken">⚠️</span>
+                                <span>http://paypa1-secure-login.com/signin
+                                    <span class="red-flag" data-tooltip="'paypa1' with the number 1 instead of 'l', and not paypal.com">🚩 Misspelled domain</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fake-login">
+                            <div class="fake-logo">PayPa1</div>
+                            <input type="text" class="fake-real-input" id="fake-email" placeholder="Email or phone number" autocomplete="off">
+                            <input type="password" class="fake-real-input" id="fake-password" placeholder="Password" autocomplete="off">
+                            <button class="fake-btn-interactive" id="fake-login-btn" onclick="handleFakeLogin()">Log In</button>
+                            <p class="fake-disclaimer">By logging in, you agree to our terms.
+                                <span class="red-flag" data-tooltip="No HTTPS, misspelled brand — this steals your credentials!">🚩 Credential theft</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="example-analysis">
+                        <h4>🔍 Red Flags Spotted:</h4>
+                        <ul>
+                            <li><strong>Misspelled domain</strong> — "paypa1" with "1" instead of "l"</li>
+                            <li><strong>No HTTPS</strong> — Uses HTTP (no padlock), data is unencrypted</li>
+                            <li><strong>Not paypal.com</strong> — Legitimate PayPal only uses paypal.com</li>
+                            <li><strong>Credential harvesting</strong> — Designed to steal your login info</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fake Login Warning Modal -->
+                <div id="fake-login-modal" class="modal-overlay" style="display:none;">
+                    <div class="modal-content fake-warning-modal">
+                        <div class="fake-warning-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="64" height="64">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="fake-warning-title">🚨 You Just Got Phished!</h3>
+                        <p class="fake-warning-subtitle">Don't worry — this was a <strong>safe demonstration</strong>. No data was sent anywhere.</p>
+                        <div class="fake-warning-captured">
+                            <p class="captured-label">⚠️ A real fake site would have captured:</p>
+                            <div class="captured-data">
+                                <div class="captured-row">
+                                    <span class="captured-key">Email:</span>
+                                    <span class="captured-value" id="captured-email">—</span>
+                                </div>
+                                <div class="captured-row">
+                                    <span class="captured-key">Password:</span>
+                                    <span class="captured-value" id="captured-password">—</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fake-warning-lessons">
+                            <h4>What you should have noticed:</h4>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🔗</span>
+                                <span>The URL was <code>paypa1</code> (with number "1"), not <code>paypal.com</code></span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🔓</span>
+                                <span>The connection used <strong>HTTP</strong> (no padlock), not secure HTTPS</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">⚠️</span>
+                                <span>The browser showed a <strong>warning icon</strong> instead of a green padlock</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">✅</span>
+                                <span><strong>Always</strong> check the URL carefully before entering credentials</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg" onclick="closeFakeLoginModal()" id="fake-warning-close-btn">
+                            I Understand — Close
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phishing Link Warning Modal -->
+                <div id="phishing-link-modal" class="modal-overlay" style="display:none;">
+                    <div class="modal-content fake-warning-modal">
+                        <div class="fake-warning-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="64" height="64">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="fake-warning-title">⛔ Stop! You Clicked a Phishing Link!</h3>
+                        <p class="fake-warning-subtitle">In real life, clicking this link could have taken you to a <strong>malware-infected website</strong> or a <strong>fake login page</strong> designed to steal your credentials.</p>
+                        <div class="fake-warning-captured">
+                            <p class="captured-label">🔍 What would have happened:</p>
+                            <div class="captured-data">
+                                <div class="captured-row">
+                                    <span class="captured-key">Link shown:</span>
+                                    <span class="captured-value" style="font-size:0.75rem">amaz0n-verify-account.suspicious-site.com</span>
+                                </div>
+                                <div class="captured-row">
+                                    <span class="captured-key">Real domain:</span>
+                                    <span class="captured-value">suspicious-site.com (NOT amazon.com!)</span>
+                                </div>
+                                <div class="captured-row">
+                                    <span class="captured-key">Risk:</span>
+                                    <span class="captured-value">Credential theft, malware download</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fake-warning-lessons">
+                            <h4>How to protect yourself:</h4>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🖱️</span>
+                                <span><strong>Hover</strong> over links before clicking to see the real URL in your browser's status bar</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🔗</span>
+                                <span>Check if the domain matches the real company (<code>amazon.com</code>, not <code>amaz0n-support.com</code>)</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🌐</span>
+                                <span><strong>Type the URL manually</strong> in your browser instead of clicking email links</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">📞</span>
+                                <span>When in doubt, <strong>call the company directly</strong> using their official number</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg" onclick="closePhishingModal()" id="phishing-modal-close-btn">
+                            I'll Be More Careful — Close
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SMS Link Warning Modal -->
+                <div id="sms-link-modal" class="modal-overlay" style="display:none;">
+                    <div class="modal-content fake-warning-modal">
+                        <div class="fake-warning-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="64" height="64">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="fake-warning-title">📱 Don't Click SMS Links!</h3>
+                        <p class="fake-warning-subtitle">This shortened link (<strong>bit.ly/bnk-verify-2024</strong>) could redirect you to a <strong>phishing page</strong> or start a <strong>malware download</strong> on your phone.</p>
+                        <div class="fake-warning-captured">
+                            <p class="captured-label">🔍 Why this SMS is dangerous:</p>
+                            <div class="captured-data">
+                                <div class="captured-row">
+                                    <span class="captured-key">Sender:</span>
+                                    <span class="captured-value">Random phone number (not your bank)</span>
+                                </div>
+                                <div class="captured-row">
+                                    <span class="captured-key">URL type:</span>
+                                    <span class="captured-value">Shortened — hides real destination</span>
+                                </div>
+                                <div class="captured-row">
+                                    <span class="captured-key">Timing:</span>
+                                    <span class="captured-value">2:34 AM — sent when you're least alert</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fake-warning-lessons">
+                            <h4>How to handle suspicious SMS:</h4>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🚫</span>
+                                <span><strong>Never click links</strong> in unexpected text messages from unknown numbers</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🏦</span>
+                                <span>Banks <strong>never</strong> send SMS with links asking you to verify your identity</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">📱</span>
+                                <span>Open your <strong>bank app directly</strong> or call their official number to check</span>
+                            </div>
+                            <div class="lesson-item">
+                                <span class="lesson-icon">🗑️</span>
+                                <span><strong>Delete the message</strong> and report the number as spam</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg" onclick="closeSmsModal()" id="sms-modal-close-btn">
+                            Got It — Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section quiz-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Test Yourself</span>
+                <h2 class="section-title">Cybersecurity <span class="gradient-text">Quiz</span></h2>
+                <p class="section-desc">Put your knowledge to the test! Answer 10 questions and earn your CyberShield awareness certificate.</p>
+            </div>
+
+            <!-- Quiz Start Screen -->
+            <div id="quiz-start" class="quiz-start">
+                <div class="quiz-start-card">
+                    <div class="quiz-start-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Ready to Test Your Knowledge?</h3>
+                    <p>10 questions • Multiple choice • Instant results</p>
+                    <div class="quiz-info-grid">
+                        <div class="quiz-info-item">
+                            <span class="info-icon">📋</span>
+                            <span>10 Questions</span>
+                        </div>
+                        <div class="quiz-info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>~5 Minutes</span>
+                        </div>
+                        <div class="quiz-info-item">
+                            <span class="info-icon">🏆</span>
+                            <span>Certificate</span>
+                        </div>
+                        <div class="quiz-info-item">
+                            <span class="info-icon">🔄</span>
+                            <span>Retake Anytime</span>
+                        </div>
+                    </div>
+                    <button id="quiz-start-btn" class="btn btn-primary btn-lg" onclick="startQuiz()">
+                        Begin Quiz
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Active Screen -->
+            <div id="quiz-active" class="quiz-active" style="display:none;">
+                <div class="quiz-progress">
+                    <div class="progress-info">
+                        <span id="quiz-question-num">Question 1 of 10</span>
+                        <span id="quiz-score-live">Score: 0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="quiz-progress-fill" class="progress-fill" style="width:10%"></div>
+                    </div>
+                </div>
+                <div id="quiz-question-card" class="quiz-question-card">
+                    <h3 id="quiz-question-text"></h3>
+                    <div id="quiz-options" class="quiz-options"></div>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback" style="display:none;">
+                    <div class="feedback-icon" id="feedback-icon"></div>
+                    <p id="feedback-text"></p>
+                    <button id="quiz-next-btn" class="btn btn-primary" onclick="nextQuestion()">
+                        Next Question
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Results Screen -->
+            <div id="quiz-results" class="quiz-results" style="display:none;">
+                <div class="results-card">
+                    <div class="results-score-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none"/>
+                            <circle id="score-circle" cx="60" cy="60" r="54" stroke="url(#scoreGrad)" stroke-width="8" fill="none"
+                                    stroke-dasharray="339.29" stroke-dashoffset="339.29" stroke-linecap="round"
+                                    transform="rotate(-90 60 60)"/>
+                            <defs>
+                                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00f5d4"/>
+                                    <stop offset="100%" style="stop-color:#7b61ff"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="score-text">
+                            <span id="score-percent">0</span><span>%</span>
+                        </div>
+                    </div>
+                    <h3 id="results-title">Quiz Complete!</h3>
+                    <p id="results-message"></p>
+                    <div class="results-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="result-correct">0</span>
+                            <span class="result-stat-label">Correct</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="result-wrong">0</span>
+                            <span class="result-stat-label">Wrong</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-num" id="result-total">10</span>
+                            <span class="result-stat-label">Total</span>
+                        </div>
+                    </div>
+                    <div class="results-actions">
+                        <button class="btn btn-primary" onclick="showCertificate()" id="show-cert-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M12 15l-3 3v5l3-2 3 2v-5l-3-3z"/><circle cx="12" cy="9" r="6"/>
+                            </svg>
+                            View Certificate
+                        </button>
+                        <button class="btn btn-secondary" onclick="retakeQuiz()" id="retake-quiz-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                            </svg>
+                            Retake Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificate-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content certificate-content">
+            <button class="modal-close" onclick="closeCertificate()" id="close-cert-btn">&times;</button>
+            <div id="certificate" class="certificate">
+                <div class="cert-border">
+                    <div class="cert-inner">
+                        <div class="cert-header">
+                            <svg class="cert-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <h2 class="cert-title">CyberShield</h2>
+                            <p class="cert-subtitle">Certificate of Cybersecurity Awareness</p>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-preamble">This certifies that</p>
+                            <div class="cert-name-input-wrap">
+                                <input type="text" id="cert-name-input" class="cert-name-input" placeholder="Enter Your Name" maxlength="40">
+                            </div>
+                            <p class="cert-detail">has successfully completed the CyberShield Cybersecurity Awareness Quiz</p>
+                            <div class="cert-score-display">
+                                <span class="cert-score-label">Score:</span>
+                                <span id="cert-score" class="cert-score-value">0/10</span>
+                                <span class="cert-score-separator">|</span>
+                                <span class="cert-score-label">Grade:</span>
+                                <span id="cert-grade" class="cert-score-value">—</span>
+                            </div>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-date">
+                                <div class="cert-line"></div>
+                                <span id="cert-date-text">Date</span>
+                            </div>
+                            <div class="cert-seal">
+                                <svg viewBox="0 0 60 60" width="60" height="60">
+                                    <circle cx="30" cy="30" r="28" stroke="url(#shieldGrad)" stroke-width="2" fill="none"/>
+                                    <text x="30" y="35" text-anchor="middle" fill="#00f5d4" font-size="10" font-weight="bold">VERIFIED</text>
+                                </svg>
+                            </div>
+                            <div class="cert-id">
+                                <div class="cert-line"></div>
+                                <span id="cert-id-text">Certificate ID</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" onclick="downloadCertificate()" id="download-cert-btn" style="margin-top:1.5rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download Certificate
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>CyberShield</span>
+                    </div>
+                    <p>Empowering users with cybersecurity knowledge to stay safe in the digital world.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#threats">Cyber Threats</a>
+                    <a href="#safety-tips">Safety Tips</a>
+                    <a href="#examples">Real Examples</a>
+                    <a href="#quiz">Take Quiz</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="https://www.cisa.gov" target="_blank" rel="noopener">CISA.gov</a>
+                    <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a>
+                    <a href="https://www.phishing.org" target="_blank" rel="noopener">Anti-Phishing WG</a>
+                    <a href="https://staysafeonline.org" target="_blank" rel="noopener">Stay Safe Online</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CyberShield. Built for cybersecurity awareness and education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
